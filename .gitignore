@@ -1,3 +1,5 @@
 .env
 to-do.txt
 done.txt 
+
+node_modules/
