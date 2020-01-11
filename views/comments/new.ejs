@@ -3,7 +3,7 @@
     <div class="row">
         <h1 style="text-align: center;">Create a new comment to <%= campground.name %></h1>
         <div style="width:30%; margin:30px auto;">
-            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+            <form action="/burgers/<%= campground._id %>/comments" method="POST">
                 <div class="form-group">
                         <input class="form-control" type="text" placeholder="text" name="comment[text]">
                 </div>
@@ -11,7 +11,7 @@
                         <button class="btn btn-lg btn-primary btn-block">Submit</button>
                 </div>
             </form>
-            <a href="/campgrounds">Go Back</a> 
+            <a href="/burgers">Go Back</a> 
         </div>
     </div>
 </div>

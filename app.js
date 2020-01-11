@@ -1,7 +1,6 @@
 var express        = require('express'),
     bodyParser     = require('body-parser'),
     mongoose       = require('mongoose'),
-    seedDB         = require("./seeds"),
     passport       = require("passport"),
     LocalStrategy  = require("passport-local"),
     methodOverride = require("method-override"),
@@ -10,8 +9,9 @@ var express        = require('express'),
 
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index");
+    burgerRoutes = require("./routes/burgers"),
+    indexRoutes      = require("./routes/index"),
+    userRoutes       = require("./routes/user");
 
 
 // seedDB(); // seed database
@@ -44,8 +44,9 @@ app.use((req, res, next)=>{
 });
 
 app.use("/", indexRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds", campgroundRoutes);
+app.use("/burgers/:id/comments", commentRoutes);
+app.use("/burgers", burgerRoutes);
+app.use("/users", userRoutes);
 
 app.listen(8000, ()=>{
     console.log("yelp camp has started on port 8000");

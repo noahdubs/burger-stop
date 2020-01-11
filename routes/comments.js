@@ -1,17 +1,17 @@
 var express = require("express");
 var router = express.Router({mergeParams: true});
-var Campground = require("../models/campground");
+var Burger = require("../models/burger");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
 // new comment form
 router.get("/new", middleware.isLoggedIn, (req, res)=>{
     //find campground by id
-    Campground.findById(req.params.id, (err, campground)=>{
+    Burger.findById(req.params.id, (err, burger)=>{
         if(err){
             console.log(err);
         } else {
-            res.render("comments/new", {campground: campground});
+            res.render("comments/new", {burger: burger});
         }
     });
 });
@@ -19,13 +19,11 @@ router.get("/new", middleware.isLoggedIn, (req, res)=>{
 // post route
 router.post("/", middleware.isLoggedIn, (req, res)=>{
     //lookup campground using id
-    console.log(req.params.id);
-    console.log(req.user._id);
-    Campground.findById(req.params.id, (err, campground)=>{
+    Burger.findById(req.params.id, (err, burger)=>{
         if(err){
             console.log(err);
             req.flash("error", "Something went wrong");
-            res.redirect("/campgrounds");
+            res.redirect("/burgers");
         } else {
             //create new comment
             Comment.create(req.body.comment, (err, comment)=>{
@@ -37,11 +35,10 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
                     comment.author.username = req.user.username;
                     comment.save();
                     //connect new comment to campground
-                    campground.comments.push(comment);
-                    console.log(campground);
-                    campground.save();
+                    burger.comments.push(comment);
+                    burger.save();
                     req.flash("success", "your comment was created");
-                    res.redirect("/campgrounds/" + campground._id);
+                    res.redirect("/burgers/" + burger._id);
                 }
             });
         }
@@ -65,7 +62,7 @@ router.put("/:comment_id", middleware.checkCommentOwner, (req, res)=>{
         if(err) {
             res.redirect("back");
         } else {
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/burgers/" + req.params.id);
         }
     });
 });
@@ -77,7 +74,7 @@ router.delete("/:comment_id", middleware.checkCommentOwner, (req, res)=>{
             res.redirect("back");
         } else {
             req.flash("success", "comment deleted");
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/burgers/" + req.params.id);
         }
     });
 });

@@ -1,16 +1,16 @@
 // all middleware goes here
 var middlewareObj = {};
-var Campground = require("../models/campground");
+var Burger = require("../models/burger");
 var Comment = require("../models/comment");
 
 middlewareObj.checkCampgroundOwner = (req, res, next)=>{
     if(req.isAuthenticated()){
-        Campground.findById(req.params.id, (err, foundCampground)=>{
+        Burger.findById(req.params.id, (err, foundBurger)=>{
             if(err) {
                 req.flash("error", "something went wrong");
                 res.redirect("back");
             } else {
-                if(foundCampground.author.id.equals(req.user._id)) {
+                if(foundBurger.author.id.equals(req.user._id)) {
                     next();
                 } else {
                     req.flash("error", "You dont have permission to do that");

@@ -1,0 +1,33 @@
+/* navbar styles 
+colors
+==========
+bun: #f19f00
+ketchup: #d22501
+patty: #88472e
+lettuce: #91a61d
+*/
+.nav-custom {
+    background-color: #f19f00;
+    border-radius: 0;
+    color: white;
+}
+.navbar-brand {
+    color: #d22501;
+    font-size: 25px;
+    font-weight: 600;
+}
+.navbar-brand:hover {
+    color: #d22501;
+}
+.nav-item {
+    color: #88472e;
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 1.5em;
+}
+.nav-item:hover{
+    color: #88472e;
+    background-color: #f19f00 !important;
+    text-decoration: none;
+}
+

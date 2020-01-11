@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+    <div class="container">
+        <div class="jumbotron">
+            <h1><%= user.name %>'s profile</h1>
+            <h3><%= user.username %></h3>
+            <img src="<%= user.pic %>">
+        </div> 
+        <div class="row">
+            <h2>Burgers made by <%= user.username %></h2>
+        </div>
+    </div>
+
+
+<% include ../partials/footer %>
