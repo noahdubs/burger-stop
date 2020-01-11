@@ -1,0 +1,21 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    background-color:#FFD500;
+}
+.lettuce, .ketchup, .burger {
+    width: 97%;
+    height: 20%;
+    border-radius: 20px;
+    margin: auto;
+}
+.lettuce {
+    background-color: #74AC2D;
+}
+.ketchup {
+    background-color: #DE0000;
+}
+.burger {
+    background-color: #4C2003;
+}
+
