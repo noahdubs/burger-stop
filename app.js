@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express        = require('express'),
     bodyParser     = require('body-parser'),
     mongoose       = require('mongoose'),
@@ -6,8 +8,6 @@ const express        = require('express'),
     methodOverride = require("method-override"),
     User           = require("./models/user"),
     flash          = require("connect-flash");
-    
-require('dotenv').config();
 
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
@@ -16,7 +16,7 @@ var commentRoutes    = require("./routes/comments"),
     userRoutes       = require("./routes/user");
 
 var app = express();
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/burgerStop", {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+ "/public"));
@@ -47,17 +47,7 @@ app.use("/burgers/:id/comments", commentRoutes);
 app.use("/burgers", burgerRoutes);
 app.use("/users", userRoutes);
 
-const googleMapsClient = require("@google/maps").createClient({
-    key: process.env.MAPS_API_KEY
-});
-
-googleMapsClient.geocode({address: '13825 7th St SE, Foley, MN'}, (err, response)=> {
-    if(err){
-        console.log(err)
-    } else {
-    }
-})
 
 app.listen(8000, ()=>{
-    console.log("yelp camp has started on port 8000");
+    console.log("burger stop has started on port 8000");
 });

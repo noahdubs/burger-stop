@@ -3,8 +3,10 @@ body, html {
     height: 100%;
 }
 body {
-    background-image: url("https://i.imgur.com/PBDFRqt.png");
+    background-image: url("https://i.imgur.com/mnsPcM0.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    color:  #F10007;
 }
+

@@ -5,27 +5,26 @@
             <h1>Welcome To Burger Stop!</h1>
             <p>View our hand-picked burgers from all over the world</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="/burgers/new">Click here to add a new burger</a>
+                <a class="btn add-new-btn" href="/burgers/new">Add a new burger</a>
             </p>
         </div>
     </header>
 
     <div class="row text-center" style="display:flex; flex-wrap:wrap;">
         <% burgers.forEach((burger)=>{ %>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 burger-col">
                 <div class="thumbnail">
-                    <img src="<%= burger.image %>"> 
+                    <a href="/burgers/<%= burger._id %>">
+                        <img class="burger-img" src="<%= burger.image %>"> 
+                    </a>
                     <div class="caption">
-                        <h4>
-                            <%= burger.name %>
-                        </h4>
-                        <h5>
-                           Author: <%= burger.author.username %>
-                        </h5>
+                        <a class="burger-link" href="/burgers/<%= burger._id %>">
+                            <h4><%= burger.name %></h4>
+                        </a>
+                        <a class="burger-link" href="/users/<%= burger.author.id %>">
+                            <h5>Made by <%= burger.author.username %></h5>
+                        </a>
                     </div>
-                    <p>
-                        <a class="btn btn-primary" href="/burgers/<%= burger._id %>">More Info</a>
-                    </p>
                 </div>
             </div>            
         <% }) %>

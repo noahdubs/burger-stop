@@ -1,12 +1,34 @@
 <% include partials/header %>
-<h1>Sign up</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 form-col reg-col">
+            <h1>Register</h1>
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" placeholder="Your name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" placeholder="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="pic" class="form-label">Profile Picture</label>
+                    <input type="text" name="pic" placeholder="profile pic url" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" placeholder="password" class="form-control">
+                </div>
+                <button class="lg-rg-btn">Register <i class="fas fa-user-plus"></i></button>
+            </form> 
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
 
 
-<form action="/register" method="POST">
-    <input type="text" name="name" placeholder="Your name">
-    <input type="text" name="username" placeholder="username">
-    <input type="text" name="pic" placeholder="profile pic url">
-    <input type="password" name="password" placeholder="password">
-    <button>Register</button>
-</form> 
+
+
 <% include partials/footer %>

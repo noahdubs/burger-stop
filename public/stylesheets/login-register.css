@@ -1,0 +1,63 @@
+/* colors
+ background #FF6100 | #FF531C
+ lettuce #74AC2D | #68AC42
+ ketchup #DE0000 | #F10007
+ burger #4C2003 | #521D07
+ cheese #FAAF18 | #FFAA3A
+ bun #E5A371 | #F09F76
+*/
+
+/* login/register/other forms page styles */
+
+.form-col {
+    background-color: #F09F76;
+    height: 380px;
+    border: 2px solid #F10007;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+.reg-col {
+    height: 550px;
+}
+.form-col h1 {
+    padding: 1em 0 .5em .25em;
+    color: #F10007;
+    font-weight: 500;
+}
+.form-control{
+    border: 2px solid #F10007;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.form-label {
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+
+
+
+
+.lg-rg-btn {
+    background-color: #F09F76;
+    color: #F10007;
+    font-weight: 600;
+    border: 2px solid #F10007;
+    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+}
+.lg-rg-btn:hover {
+    animation: 1s ease 0s fadeIn forwards;
+}
+@keyframes fadeIn {
+    0% {
+        background-color: #F09F76;
+        color: #F10007;
+    }
+    100% {
+        background-color: #F10007;
+        color: #F09F76;
+        font-weight: 700;
+    }
+}

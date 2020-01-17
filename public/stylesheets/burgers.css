@@ -1,0 +1,57 @@
+/* colors
+ background #FF6100 | #FF531C
+ lettuce #74AC2D | #68AC42
+ ketchup #DE0000 | #F10007
+ burger #4C2003 | #521D07
+ cheese #FAAF18 | #FFAA3A
+ bun #E5A371 | #F09F76
+*/
+
+
+/* all burgers page styles */
+.jumbotron {
+    background-color: #F09F76;
+    border: 2px solid #F10007;
+    border-radius: 20px;
+    padding: 25px 40px;
+}
+.add-new-btn {
+    margin-top: 20px;
+    background-color: #F09F76;
+    border: 2px solid #F10007;
+    color: #F10007;
+    padding: .5em 3em;
+    font-weight: 700;
+}
+.add-new-btn:hover {
+    animation: .5s ease 0s fadeIn forwards;
+}
+
+.burger-col {
+    height: 200px;
+}
+.thumbnail {
+    background-color: #F09F76;
+    border: 2px solid #F10007;
+    border-radius: 20px;
+}
+.burger-img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #F10007;
+    border-radius: 20px 20px 0 0px;
+    height: 200px;
+}
+.caption {
+    margin-bottom: 20px;
+}
+.burger-link {
+    color: #F10007;
+}
+.burger-link:hover {
+    color: #F10007;
+    text-decoration: none;
+}
+
+
