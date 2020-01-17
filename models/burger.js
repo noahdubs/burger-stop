@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 var burgerSchema = new mongoose.Schema({
     name: String,
     price: String,
-    image: String,
+    picture: {
+        id: String,
+        url: String
+    },
     description: String,
     location: String,
     lat: Number,

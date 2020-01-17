@@ -33,6 +33,11 @@
     font-weight: 500;
     margin-left: 5px;
 }
+.file-control {
+    border: none;
+    background-color: transparent;
+    color: #F10007;
+}
 
 
 

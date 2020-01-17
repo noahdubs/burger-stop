@@ -1,18 +1,26 @@
 <% include ../partials/header %>
-<div class="container">
-    <div class="row">
+<div class="container burger-container">
+    <div class="row burger-row">
         <div class="col-7 content-col">
             <div class="row">
-                <div class="col-md-7">
-                    <h1><%= burger.name %></h1>
-                    <img class="burger-page-img" src="<%= burger.image %>">
+                <div class="col-lg-6">
+                    <h2><%= burger.name %></h2>
+                    <img class="burger-page-img" src="<%= burger.picture.url %>">
                 </div>
-                <div class="col-md-5">
+                <div class="col-lg-6">
                     <h4 class="pull-right">Price: $<%= burger.price %></h4>
                     <p><%= burger.description %></p>
                     <p class="review-by">Review by 
-                        <a href="/users/<%= burger.author._id %>" class="burger-author"> <%= burger.author.username %></a>
+                        <a href="/users/<%= burger.author.id %>" class="burger-author"> <%= burger.author.username %></a>
                     </p>
+                    <div class="burg-options">
+                        <% if(currentUser && burger.author.id.equals(currentUser._id)){ %>
+                            <a class="edit-burg-btn" href="/burgers/<%= burger._id %>/edit">Edit burger <i class="far fa-edit"></i></a>
+                            <form class="deleteForm" action="/burgers/<%= burger._id %>?_method=DELETE" method="POST">
+                                <button  class="delete-burg-btn">Delete Burger <i class="fas fa-trash"></i></button>
+                            </form>
+                        <% } %>
+                    </div>
                 </div>
             </div>
             
@@ -23,26 +31,36 @@
         <div class="comments">
             <div class="comm-header">
                 <h3>Comments</h3>
-                <a href="/burgers/<%= burger._id %>/comments/new" class="add-comm-btn">Add new comment</a>
             </div>
-            <% burger.comments.forEach((comment)=>{ %> 
-                <div class="row com-row">
+            <div class="row com-row">
+                <% burger.comments.forEach((comment)=>{ %> 
                     <div class="col-6 com-content">
-                       <a class="burger-author com-author" href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
-                       <p><%= comment.text %></p> 
+                        <a class="burger-author com-author" href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
+                        <p><%= comment.text %></p> 
                     </div>
                     <div class="col-6 com-options-col">
                         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                             <a href="/burgers/<%= burger._id %>/comments/<%= comment._id %>/edit" 
-                            class="edit-comm-btn">Edit comment</a>
+                            class="edit-comm-btn">Edit comment <i class="far fa-edit"></i></a>
                             <form action="/burgers/<%= burger._id %>/comments/<%= comment._id %>?_method=DELETE" 
                                 method="POST" class="deleteForm">
-                                <button class="delete-comm-btn">Delete comment</button>
+                                <button class="delete-comm-btn">Delete comment <i class="fas fa-trash"></i></button>
                             </form>
-                       <% } %>
+                        <% } %>
                     </div>
-                </div>
-            <% }) %> 
+                <% }) %> 
+            </div>
+            <div class="new-comment">
+                <h4>New comment</h4>
+                <form action="/burgers/<%= burger._id %>/comments" method="POST">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2" placeholder="Your comment here" name="comment[text]"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="lg-rg-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -52,7 +70,7 @@
         var lng = <%= burger.lng %>;
         var center = {lat: lat, lng: lng};
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8,
+            zoom: 13,
             center: center,
             scrollwheel: false 
         });

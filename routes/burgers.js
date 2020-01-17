@@ -1,9 +1,26 @@
-var express = require("express");
-var router = express.Router();
-var Burger = require("../models/burger");
-var middleware = require("../middleware");
-var NodeGeocoder = require("node-geocoder");
+var express = require("express"),
+    Burger = require("../models/burger"),
+    middleware = require("../middleware"),
+    NodeGeocoder = require("node-geocoder"),
+    multer = require('multer'),
+    cloudinary = require("cloudinary"),
+    cloudinaryStorage = require("multer-storage-cloudinary");
 
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET 
+});
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "burgers",
+    allowedFormats: ["jpg", "png", "jpeg"],
+    transformation: [{ width: 500, height: 500, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
+    
+const router = express.Router();
+    
 var options = {
     provider: 'google',
     httpAdapter: 'https',
@@ -25,10 +42,17 @@ router.get("/", (req, res)=>{
 });
 
 // create- add new campground to db
-router.post("/", middleware.isLoggedIn, (req, res)=>{
+router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
+    const image = {};
+    console.log(req.file)
+    if(typeof req.file === "undefined"){
+        image.url = process.env.DEFAULT_PIC
+    } else {
+        image.url = req.file.url;
+        image.id = req.file.public_id;
+    }
     //get data from form
     var name = req.body.name;
-    var image = req.body.image;
     var description = req.body.description;
     var author = {
         id: req.user._id,
@@ -46,7 +70,8 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
         var newBurger = {
             name: name, image: image,
             description:description, author: author,
-            price:price, location:location,
+            price:price, picture: image,
+            location:location,
             lat: lat, lng: lng 
         };
         // create new campground and save it to the db
@@ -54,7 +79,8 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
             if(err){
                 console.log(err);
             } else {
-                console.log(newlycreated);
+                req.user.burgers.push(newlycreated)
+                req.user.save();
                 res.redirect("/burgers");
             }
         }); 
@@ -88,7 +114,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwner, (req, res)=>{
         if(err){
             console.log(err)
         } else {
-            res.render("burgers/edit", {campground: foundBurger});
+            res.render("burgers/edit", {burger: foundBurger});
         }
     });
 });
@@ -109,7 +135,6 @@ router.put("/:id", middleware.checkCampgroundOwner, (req, res)=>{
                 req.flash("error", err.message);
                 res.redirect('back')
             } else {
-                req.flash("success", "Successfully updated!")
                 res.redirect("/burgers/" + req.params.id);
             }
         });

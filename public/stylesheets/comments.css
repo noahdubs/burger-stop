@@ -1,0 +1,92 @@
+/* colors
+ background #FF6100 | #FF531C
+ lettuce #74AC2D | #68AC42
+ ketchup #DE0000 | #F10007
+ burger #4C2003 | #521D07
+ cheese #FAAF18 | #FFAA3A
+ bun #E5A371 | #F09F76
+*/
+
+/* comments div */
+.comments {
+    margin-top: 20px;
+    background-color: #F09F76;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #F10007;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.comm-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid  #F10007;
+    margin-bottom: 5px;
+}
+.com-row {
+    margin-bottom: 10px;
+}
+.com-content {
+    padding-left: 20px;
+    height: 100px;
+}
+.com-options-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.com-author {
+    font-size: 22px;
+}
+.edit-comm-btn {
+    background-color: #FFAA3A;
+    color: #F10007;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+.delete-comm-btn {
+    background-color: #F10007;
+    color: #F09F76;
+    border: none;
+    padding: 10px 20px ;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.edit-comm-btn:hover {
+    color: #F10007;
+    text-decoration: none;
+}
+.add-comm-btn {
+    margin-left: 30px;
+    background-color: #F10007;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #F09F76;
+    font-weight: 600;
+}
+.add-comm-btn:hover {
+    color: #F09F76;
+    text-decoration: none;
+}
+.new-com-col {
+    margin-top: 200px;
+    height: 250px;
+}
+.new-comment {
+    padding-top: 10px;
+}
+
+/* edit comment page */
+.edit-com-col {
+    margin-top: 100px;
+    height: 300px;
+}
+.edit-com-group {
+    margin-bottom: 30px;
+}

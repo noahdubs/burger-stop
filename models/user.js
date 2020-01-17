@@ -5,7 +5,10 @@ var userSchema = new mongoose.Schema({
     username: String,
     name: String,
     password: String,
-    pic: String,
+    picture: {
+        id: String,
+        url: String 
+    },
     burgers: [
         {
             type: mongoose.Schema.Types.ObjectId,

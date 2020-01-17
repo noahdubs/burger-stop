@@ -1,7 +1,25 @@
-var express = require("express");
-var router = express.Router();
-var passport = require("passport");
-var User = require("../models/user");
+const express = require("express")
+      passport = require("passport"),
+      User = require("../models/user"),
+      multer = require("multer"),
+      cloudinary = require("cloudinary"),
+      cloudinaryStorage = require("multer-storage-cloudinary");
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET 
+});
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "profile-pics",
+    allowedFormats: ["jpg", "png", "jpeg"],
+    transformation: [{ width: 500, height: 500, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
+
+const router = express.Router();
+
 
 router.get("/", (req, res)=>{
     res.render('landing')
@@ -16,14 +34,23 @@ router.get("/register", (req, res)=>{
 });
 
 // add user to db
-router.post("/register", (req, res)=>{
+router.post("/register", parser.single("image"), (req, res)=>{
+    console.log("got here")
+    const image = {};
+    if(typeof req.file === "undefined"){
+        image.url = process.env.DEFAULT_PROFILE_PIC
+    } else {
+        image.url = req.file.url;
+        image.id = req.file.public_id;
+    }
     var newUser = new User({
         username: req.body.username,
         name: req.body.name,
-        pic: req.body.pic 
+        picture: image 
     });
     User.register(newUser, req.body.password, (err, user)=>{
         if(err) {
+            console.log(err)
             req.flash("error", err.message);
             res.render("register");
         }

@@ -37,7 +37,6 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
                     //connect new comment to campground
                     burger.comments.push(comment);
                     burger.save();
-                    req.flash("success", "your comment was created");
                     res.redirect("/burgers/" + burger._id);
                 }
             });
@@ -51,7 +50,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwner, (req, res)=>{
         if(err) {
             res.redirect("back");
         } else {
-            res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
+            res.render("comments/edit", {burger_id: req.params.id, comment: foundComment});
         }
     }); 
 });

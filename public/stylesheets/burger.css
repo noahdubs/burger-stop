@@ -8,6 +8,13 @@
 */
 
 /* burger page styles */
+.burger-container {
+    height: 100%;
+}
+.burger-row {
+    height: 100%;
+}
+/* content col */
 .content-col {
     background-color: #F09F76;
     padding: 0;
@@ -23,6 +30,42 @@
 .burger-author:hover{
     color: #F10007;
 }
+.burger-page-img {
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    height: 280px;
+    border-radius: 10px;
+}
+.burg-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-burg-btn {
+    background-color: #FFAA3A;
+    color: #F10007;
+    border: none;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 7px 12px;
+}
+.delete-burg-btn {
+    background-color: #F10007;
+    color: #F09F76;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 12px;
+
+}
+.edit-burg-btn:hover {
+    color: #F10007;
+    text-decoration: none;
+}
+
+
+
+/* google maps col */
 .map-col {
     display: flex;
     justify-content: center;
@@ -38,68 +81,10 @@
 }
 
 
-.comments {
-    margin-top: 50px;
-    background-color: #F09F76;
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid #F10007;
-    padding: 20px;
+
+
+/* edit burger page */
+.edit-burg-col {
+    height: 640px;
 }
-.comm-header{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid  #F10007;
-    margin-bottom: 20px;
-}
-.com-row {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #F10007;
-}
-.com-content {
-    padding-left: 20px;
-}
-.com-options-col {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.com-author {
-    font-size: 22px;
-}
-.edit-comm-btn {
-    background-color: #FFAA3A;
-    color: #F10007;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-right: 10px;
-    font-weight: 600;
-    text-align: center;
-}
-.delete-comm-btn {
-    background-color: #F10007;
-    color: #F09F76;
-    border: none;
-    padding: 10px 20px ;
-    border-radius: 10px;
-    font-weight: 600;
-}
-.edit-comm-btn:hover {
-    color: #F10007;
-    text-decoration: none;
-}
-.add-comm-btn {
-    margin-left: 30px;
-    background-color: #F10007;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: #F09F76;
-    font-weight: 600;
-}
-.add-comm-btn:hover {
-    color: #F09F76;
-    text-decoration: none;
-}
+
