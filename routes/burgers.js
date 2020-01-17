@@ -103,7 +103,7 @@ router.get("/:id", (req, res)=>{
             console.log(err);
         } else {
             //render show template with that campground
-            res.render("burgers/show", {burger: foundBurger});
+            res.render("burgers/show", {burger: foundBurger, key: process.env.MAPS_API_KEY});
         }
     });
 });
