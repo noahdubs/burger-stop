@@ -51,8 +51,8 @@
 
 
 .lg-rg-btn {
-    background-color: white;
-    color: #FF531C;
+    background-color: #FF531C;
+    color: white;
     font-weight: 600;
     border: 2px solid white;
     border-radius: 5px;
@@ -64,11 +64,11 @@
 }
 @keyframes fadeIn {
     0% {
-        background-color: white;
-        color: #FF531C;
-    }
-    100% {
         background-color: #FF531C;
         color: white;
+    }
+    100% {
+        background-color: white;
+        color: #FF531C;
     }
 }

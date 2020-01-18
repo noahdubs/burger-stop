@@ -59,6 +59,8 @@ router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
         id: req.user._id,
         username: req.user.username
     }
+    var date = new Date()
+    var currentTime = date.toDateString()
     var price = req.body.price;
     geocoder.geocode(req.body.location, (err, data)=> {
         if(err || !data.length){
@@ -74,15 +76,18 @@ router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
             price:price, picture: image,
             location:location,
             lat: lat, lng: lng,
-            stars: stars, restaurant: restaurant
+            stars: stars, restaurant: restaurant,
+            date: {posted: currentTime}
         };
         // create new campground and save it to the db
         Burger.create(newBurger, (err, newlycreated)=>{
             if(err){
+                req.flash("error", err.message)
                 console.log(err);
             } else {
                 req.user.burgers.push(newlycreated)
                 req.user.save();
+                req.flash("success", "New burger created!")
                 res.redirect("/burgers");
             }
         }); 
@@ -131,12 +136,16 @@ router.put("/:id", middleware.checkCampgroundOwner, (req, res)=>{
         req.body.burger.lat = data[0].latitude;
         req.body.burger.lng = data[0].longitude;
         req.body.burger.location = data[0].formattedAddress;
+        const date = new Date()
+        const currentTime = date.toDateString()
+        req.body.burger.date = {edited: currentTime}
         // find and update correct campground
         Burger.findByIdAndUpdate(req.params.id, req.body.burger, (err, updatedBurger)=>{
             if(err) {
                 req.flash("error", err.message);
                 res.redirect('back')
             } else {
+                req.flash("success", "Burger succesfully updated!")
                 res.redirect("/burgers/" + req.params.id);
             }
         });
@@ -150,8 +159,10 @@ router.put("/:id", middleware.checkCampgroundOwner, (req, res)=>{
 router.delete("/:id", middleware.checkCampgroundOwner, (req, res)=>{
     Burger.findByIdAndDelete(req.params.id, (err)=>{
         if(err) {
+            req.flash("error", err.message);
             res.redirect("/burgers");
         } else {
+            req.flash("success", "Burger succesfully deleted!")
             res.redirect("/burgers");
         }
     });

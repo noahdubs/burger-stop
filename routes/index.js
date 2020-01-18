@@ -43,10 +43,13 @@ router.post("/register", parser.single("image"), (req, res)=>{
         image.url = req.file.url;
         image.id = req.file.public_id;
     }
+    var date = new Date()
+    var currentTime = date.toDateString()
     var newUser = new User({
         username: req.body.username,
         name: req.body.name,
-        picture: image 
+        picture: image,
+        date: currentTime
     });
     User.register(newUser, req.body.password, (err, user)=>{
         if(err) {
@@ -55,7 +58,7 @@ router.post("/register", parser.single("image"), (req, res)=>{
             res.render("register");
         }
         passport.authenticate("local")(req, res, ()=>{
-            req.flash("success", "welcome to Burger Stop " + user.username);
+            req.flash("success", "Welcome to Burger Stop " + user.username);
             res.redirect("/burgers");
         });
     });
@@ -77,7 +80,7 @@ router.post("/login", passport.authenticate("local", {
 router.get("/logout", (req, res)=>{
     req.logOut();
     req.flash("success", "Logged you out");
-    res.redirect("/burgers");
+    res.redirect("/login");
 });
 
 

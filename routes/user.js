@@ -27,8 +27,10 @@ router.get("/:userId/edit", (req, res)=> {
 router.put("/:userId", (req, res)=> {
     User.findByIdAndUpdate(req.params.userId, req.body, (err, updatedUser)=> {
         if(err){
+            req.flash("error", err.message)
             console.log(err)
         }else {
+            req.flash("success", "Your account was successfully updated")
             res.redirect(`/users/${updatedUser._id}`)
         }
     });
@@ -37,8 +39,10 @@ router.put("/:userId", (req, res)=> {
 router.delete("/:userId", (req, res)=>{
     User.findByIdAndDelete(req.params.userId, (err)=> {
         if(err){
+            req.flash("error", err.message)
             console.log(err)
         }else {
+            req.flash("success", "Your account was successfully deleted")
             res.redirect("/")
         }
     });

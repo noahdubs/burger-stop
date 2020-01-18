@@ -13,6 +13,10 @@ var burgerSchema = new mongoose.Schema({
     lng: Number,
     stars: Number,
     restaurant: String, 
+    date: {
+        posted: String,
+        edited: String 
+    },
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

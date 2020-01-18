@@ -52,34 +52,66 @@
     font-weight: 600;
 }
 .delete-burg-btn {
-    background-color: white;
-    color: #FF531C;
+    background-color: #FF531C;
+    color: white;
     border: 2px solid white;
     border-radius: 8px;
     padding: 7px 25px;
 }
 .edit-burg-btn:hover {
     text-decoration: none;
-    animation: .3s ease-in 0s fadeInWhite forwards;
+    animation: .3s ease-in 0s fadeIn forwards;
 }
 .delete-burg-btn:hover {
     animation: .3s ease-in 0s fadeIn forwards;
     text-decoration: none;
 }
 
+.burger-about {
+    margin-top: 10px;
+    height: 100%;
+}
+.burger-about h5 {
+    font-weight: 600;
+}
+.review-div {
+    border-top: 1px solid white;
+}
+.review {
+    padding-top: 10px;
+}
+
+
+
+
+
 
 
 /* google maps col */
 .map-col {
-    display: flex;
-    justify-content: center;
     align-items: center;
     padding: 0;
 }
+.address {
+    height: 100px;
+    max-width: 100%;
+    max-height: 23%;
+    background-color: #FF531C;
+    border: 2px solid white;
+    border-radius: 0 20px 0 0;
+    border-left: none;
+    border-bottom: none;
+}
+.address-heading {
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    width: 95%;
+}
 #map {
     min-width: 100%;
-    min-height: 100%;
-    border-radius: 0 20px 20px 0;
+    min-height: 77%;
+    border-radius: 0 0px 20px 0;
     border: 2px solid white;
     border-left: none;
 }
@@ -102,5 +134,49 @@
     100% {
         background-color: white;
         color: #FF531C;
+    }
+}
+
+@media (max-width: 991px){
+    .content-col {
+        border: 2px solid white;
+        border-radius: 20px 20px 0 0px;
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .address {
+        border-top: none;
+        height: 400px;
+        margin-top: 0;
+        border-radius: 0 0 0 0;
+        border-left: 2px solid white;
+    }
+    .address-heading {
+        padding-left: 20px;
+        margin: 0;
+        border: none;
+    }
+    .address-p {
+        padding-left: 20px;
+    }
+    #map {
+        border-radius: 0 0 20px 20px;
+        border: 2px solid white;
+        border-top: none;
+    }
+    .burg-options {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 992px){
+    .burger-about {
+        margin-top: 10px;
+        position: relative;
+        height: 100%;
+    }
+    .burger-bottom {
+        position: absolute;
+        bottom: 3%;
     }
 }

@@ -23,9 +23,9 @@
 }
 .add-new-btn {
     margin-top: 20px;
-    background-color: white;
+    background-color: #FF531C;
     border: 2px solid white;
-    color: #FF531C;
+    color: white;
     padding: .5em 3em;
     font-weight: 700;
     border-radius: 5px;

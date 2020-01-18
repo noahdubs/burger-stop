@@ -32,6 +32,12 @@
                             <i class="fas fa-star bgs-star"></i>
                             <i class="fas fa-star bgs-star"></i>
                         </p>
+                        <% if(burger.date.edited){ %>
+                            <p><i class="far fa-clock"></i> <%= burger.date.edited %></p>
+                        <% } else { %>
+                            <p><i class="far fa-clock"></i> <%= burger.date.posted %></p>
+                        <% } %>
+                        
                     </div>
                 </div>
             </div>

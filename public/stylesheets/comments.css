@@ -18,24 +18,30 @@
     margin-bottom: 50px;
 }
 .comm-header{
+    width: 98%;
+    margin-left: 1%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-bottom: 5px;
     border-bottom: 1px solid  white;
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 .com-row {
     margin-bottom: 10px;
+    margin-left: 1%;
+    width: 98%;
 }
 .com-content {
-    padding-left: 20px;
-    height: 100px;
+    margin-top: 10px;
+    border-bottom: 1px solid white;
 }
 .com-options-col {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-bottom: 1px solid white;
 }
 .com-author {
     font-size: 22px;
@@ -51,8 +57,8 @@
     text-align: center;
 }
 .delete-comm-btn {
-    background-color: white;
-    color: #FF531C;
+    background-color: #FF531C;
+    color: white;
     border: 2px solid white;
     padding: 7px 25px ;
     border-radius: 10px;
@@ -82,6 +88,8 @@
     height: 250px;
 }
 .new-comment {
+    width: 98%;
+    margin-left: 1%;
     padding-top: 10px;
 }
 

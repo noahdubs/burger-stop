@@ -26,8 +26,12 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
             res.redirect("/burgers");
         } else {
             //create new comment
+            var date = new Date()
+            var currentTime = date.toDateString()
+            req.body.comment.date = {posted: currentTime}
             Comment.create(req.body.comment, (err, comment)=>{
                 if(err) {
+                    req.flash("error", err.message)
                     console.log(err);
                 } else {
                     // add username and id to comment
@@ -37,6 +41,7 @@ router.post("/", middleware.isLoggedIn, (req, res)=>{
                     //connect new comment to campground
                     burger.comments.push(comment);
                     burger.save();
+                    req.flash("success", "Comment posted!")
                     res.redirect("/burgers/" + burger._id);
                 }
             });
@@ -57,10 +62,15 @@ router.get("/:comment_id/edit", middleware.checkCommentOwner, (req, res)=>{
 
 // Update comment
 router.put("/:comment_id", middleware.checkCommentOwner, (req, res)=>{
+    var date = new Date()
+    var currentTime = date.toDateString()
+    req.body.comment.date = {edited: currentTime}
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment,(err, updatedComment)=>{
         if(err) {
+            req.flash("error", err.message)
             res.redirect("back");
         } else {
+            req.flash("success", "Comment updated!")
             res.redirect("/burgers/" + req.params.id);
         }
     });
@@ -70,6 +80,7 @@ router.put("/:comment_id", middleware.checkCommentOwner, (req, res)=>{
 router.delete("/:comment_id", middleware.checkCommentOwner, (req, res)=>{
     Comment.findByIdAndDelete(req.params.comment_id, (err)=>{
         if(err) {
+            req.flash("error", err.message)
             res.redirect("back");
         } else {
             req.flash("success", "comment deleted");
