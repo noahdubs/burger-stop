@@ -5,23 +5,30 @@
  burger #4C2003 | #521D07
  cheese #FAAF18 | #FFAA3A
  bun #E5A371 | #F09F76
-*/
+
+ #D4D4D4
+ #DCDCDC
+ F0F0F0
+#E1E1E1
+ */
 
 
 /* all burgers page styles */
 .jumbotron {
-    background-color: #F09F76;
-    border: 2px solid #F10007;
+    background-color: #FF531C;
+    color: white;
     border-radius: 20px;
     padding: 25px 40px;
+    border: 2px solid white;
 }
 .add-new-btn {
     margin-top: 20px;
-    background-color: #F09F76;
-    border: 2px solid #F10007;
-    color: #F10007;
+    background-color: white;
+    border: 2px solid white;
+    color: #FF531C;
     padding: .5em 3em;
     font-weight: 700;
+    border-radius: 5px;
 }
 .add-new-btn:hover {
     animation: .5s ease 0s fadeIn forwards;
@@ -30,16 +37,18 @@
 .burger-col {
     height: 200px;
 }
-.thumbnail {
-    background-color: #F09F76;
-    border: 2px solid #F10007;
+.card {
+    background-color: #FF531C;
     border-radius: 20px;
+    border: 2px solid white;
+}
+.card-body {
+    padding: 0;
 }
 .burger-img {
     max-width: 100%;
     max-height: 100%;
     margin-bottom: 20px;
-    border-bottom: 2px solid #F10007;
     border-radius: 20px 20px 0 0px;
     height: 200px;
 }
@@ -47,10 +56,10 @@
     margin-bottom: 20px;
 }
 .burger-link {
-    color: #F10007;
+    color: white;
 }
 .burger-link:hover {
-    color: #F10007;
+    color: white;
     text-decoration: none;
 }
 

@@ -10,10 +10,10 @@
 /* comments div */
 .comments {
     margin-top: 20px;
-    background-color: #F09F76;
+    background-color: #FF531C;
     width: 100%;
     border-radius: 20px;
-    border: 2px solid #F10007;
+    border: 2px solid white;
     padding: 20px;
     margin-bottom: 50px;
 }
@@ -22,7 +22,7 @@
     justify-content: flex-start;
     align-items: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid  #F10007;
+    border-bottom: 1px solid  white;
     margin-bottom: 5px;
 }
 .com-row {
@@ -41,26 +41,29 @@
     font-size: 22px;
 }
 .edit-comm-btn {
-    background-color: #FFAA3A;
-    color: #F10007;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    background-color: #FF531C;
+    color: white;
+    border: 2px solid white;
+    padding: 7px 25px;
+    border-radius: 8px;
     margin-right: 10px;
     font-weight: 600;
     text-align: center;
 }
 .delete-comm-btn {
-    background-color: #F10007;
-    color: #F09F76;
-    border: none;
-    padding: 10px 20px ;
+    background-color: white;
+    color: #FF531C;
+    border: 2px solid white;
+    padding: 7px 25px ;
     border-radius: 10px;
     font-weight: 600;
 }
 .edit-comm-btn:hover {
-    color: #F10007;
     text-decoration: none;
+    animation: .3s ease-in 0s fadeInWhite forwards;
+}
+.delete-comm-btn:hover {
+    animation: .3s ease-in 0s fadeIn forwards;
 }
 .add-comm-btn {
     margin-left: 30px;

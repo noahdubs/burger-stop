@@ -11,6 +11,8 @@ var burgerSchema = new mongoose.Schema({
     location: String,
     lat: Number,
     lng: Number,
+    stars: Number,
+    restaurant: String, 
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

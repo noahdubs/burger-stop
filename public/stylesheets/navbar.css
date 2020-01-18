@@ -12,21 +12,23 @@ lettuce: #91a61d
     color: white;
 }
 .navbar-brand {
-    color: #d22501;
+    color: #FF3E00;
+    z-index: 1000;
     font-size: 30px;
     font-weight: 600;
 }
 .navbar-brand:hover {
-    color: #d22501;
+    color: #FF3E00;
 }
 .nav-item {
-    color: #d22501;
+    z-index: 1000;
+    color: #FF3E00;
     font-weight: 600;
     font-size: 20px;
     padding-left: 1.5em;
 }
 .nav-item:hover{
-    color: #d22501;
+    color: #FF3E00;
     text-decoration: none;
 }
 

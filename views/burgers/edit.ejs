@@ -15,11 +15,15 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="pic">Picture</label>
-                    <input class="form-control" type="text" value="<%= burger.image %>" name="burger[image]">
+                    <input class="form-control file-control" type="file" value="<%= burger.picture %>" name="burger[image]">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="desc">Description</label>
                     <input class="form-control" type="text" value="<%= burger.description %>" name="burger[description]">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="rest">Restaurant</label>
+                    <input class="form-control" type="text" value="<%= burger.restaurant %>" name="burger[restaurant]">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="loc">Location</label>
@@ -27,11 +31,26 @@
                         value="<%= burger.location %>">
                 </div>
                 <div class="form-group">
-                    <button class="lg-rg-btn">Update</button>
+                    <label class="form-label" for="stars">Rating</label>
+                    <input type="hidden" name="burger[stars]" id="stars" value="">
+                    <p value="<%= burger.stars %>" class="p-stars">
+                        <i id="1" class="fas fa-star bgs-star"></i>
+                        <i id="2" class="fas fa-star bgs-star"></i>
+                        <i id="3" class="fas fa-star bgs-star"></i>
+                        <i id="4" class="fas fa-star bgs-star"></i>
+                        <i id="5" class="fas fa-star bgs-star"></i>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <button class="lg-rg-btn">Update <i class="far fa-edit"></i></button>
                 </div>
             </form>
         </div>
         <div class="col-md-2"></div>
     </div>      
 </div>
+<script src="/scripts/stars.js"></script>
+<script src="/scripts/indexStars.js"></script>
+
+
 <% include ../partials/footer %>

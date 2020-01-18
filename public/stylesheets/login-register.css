@@ -10,9 +10,9 @@
 /* login/register/other forms page styles */
 
 .form-col {
-    background-color: #F09F76;
+    background-color: #FF531C;
     height: 380px;
-    border: 2px solid #F10007;
+    border: 2px solid white;
     border-radius: 20px;
     margin-top: 40px;
 }
@@ -21,13 +21,11 @@
 }
 .form-col h1 {
     padding: 1em 0 .5em .25em;
-    color: #F10007;
     font-weight: 500;
 }
 .form-control{
-    border: 2px solid #F10007;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
 }
 .form-label {
     font-weight: 500;
@@ -36,19 +34,28 @@
 .file-control {
     border: none;
     background-color: transparent;
-    color: #F10007;
+    color: white;
+}
+.file-control:focus,
+.file-control:active,
+.file-control:hover {
+    background-color: transparent;
+    border: none;
+    color: white;
+    box-shadow: none;
 }
 
 
 
 
 
+
 .lg-rg-btn {
-    background-color: #F09F76;
-    color: #F10007;
+    background-color: white;
+    color: #FF531C;
     font-weight: 600;
-    border: 2px solid #F10007;
-    border-radius: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
     width: 180px;
     height: 40px;
 }
@@ -57,12 +64,11 @@
 }
 @keyframes fadeIn {
     0% {
-        background-color: #F09F76;
-        color: #F10007;
+        background-color: white;
+        color: #FF531C;
     }
     100% {
-        background-color: #F10007;
-        color: #F09F76;
-        font-weight: 700;
+        background-color: #FF531C;
+        color: white;
     }
 }

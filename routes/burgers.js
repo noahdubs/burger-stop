@@ -44,7 +44,6 @@ router.get("/", (req, res)=>{
 // create- add new campground to db
 router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
     const image = {};
-    console.log(req.file)
     if(typeof req.file === "undefined"){
         image.url = process.env.DEFAULT_PIC
     } else {
@@ -52,7 +51,9 @@ router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
         image.id = req.file.public_id;
     }
     //get data from form
-    var name = req.body.name;
+    var stars = req.body.stars
+    var name = req.body.name
+    var restaurant = req.body.restaurant
     var description = req.body.description;
     var author = {
         id: req.user._id,
@@ -72,7 +73,8 @@ router.post("/", parser.single("image"), middleware.isLoggedIn, (req, res)=>{
             description:description, author: author,
             price:price, picture: image,
             location:location,
-            lat: lat, lng: lng 
+            lat: lat, lng: lng,
+            stars: stars, restaurant: restaurant
         };
         // create new campground and save it to the db
         Burger.create(newBurger, (err, newlycreated)=>{

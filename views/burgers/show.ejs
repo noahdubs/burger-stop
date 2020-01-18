@@ -5,9 +5,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h2><%= burger.name %></h2>
+                    <p><%= burger.restaurant %></p>
                     <img class="burger-page-img" src="<%= burger.picture.url %>">
                 </div>
                 <div class="col-lg-6">
+                    <p value="<%= burger.stars %>" class="p-stars">
+                        <i class="fas fa-star bgs-star"></i>
+                        <i class="fas fa-star bgs-star"></i>
+                        <i class="fas fa-star bgs-star"></i>
+                        <i class="fas fa-star bgs-star"></i>
+                        <i class="fas fa-star bgs-star"></i>
+                    </p>
                     <h4 class="pull-right">Price: $<%= burger.price %></h4>
                     <p><%= burger.description %></p>
                     <p class="review-by">Review by 
@@ -15,9 +23,9 @@
                     </p>
                     <div class="burg-options">
                         <% if(currentUser && burger.author.id.equals(currentUser._id)){ %>
-                            <a class="edit-burg-btn" href="/burgers/<%= burger._id %>/edit">Edit burger <i class="far fa-edit"></i></a>
+                            <a class="edit-burg-btn" href="/burgers/<%= burger._id %>/edit">Edit <i class="far fa-edit"></i></a>
                             <form class="deleteForm" action="/burgers/<%= burger._id %>?_method=DELETE" method="POST">
-                                <button  class="delete-burg-btn">Delete Burger <i class="fas fa-trash"></i></button>
+                                <button  class="delete-burg-btn">Delete <i class="fas fa-trash"></i></button>
                             </form>
                         <% } %>
                     </div>
@@ -41,10 +49,10 @@
                     <div class="col-6 com-options-col">
                         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                             <a href="/burgers/<%= burger._id %>/comments/<%= comment._id %>/edit" 
-                            class="edit-comm-btn">Edit comment <i class="far fa-edit"></i></a>
+                            class="edit-comm-btn">Edit <i class="far fa-edit"></i></a>
                             <form action="/burgers/<%= burger._id %>/comments/<%= comment._id %>?_method=DELETE" 
                                 method="POST" class="deleteForm">
-                                <button class="delete-comm-btn">Delete comment <i class="fas fa-trash"></i></button>
+                                <button class="delete-comm-btn">Delete <i class="fas fa-trash"></i></button>
                             </form>
                         <% } %>
                     </div>
@@ -92,5 +100,5 @@
     }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= key %>&callback=initMap"></script>
-
+<script src="/scripts/indexStars.js"></script>
 <% include ../partials/footer %>

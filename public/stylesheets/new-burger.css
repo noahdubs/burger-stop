@@ -1,4 +1,9 @@
 /* new burger page styles */
 .new-bg-col {
-    height: 610px;
+    height: 770px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.fa-star {
+    font-size: 25px;
 }

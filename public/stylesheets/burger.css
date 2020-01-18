@@ -16,19 +16,19 @@
 }
 /* content col */
 .content-col {
-    background-color: #F09F76;
+    background-color: #FF531C;
     padding: 0;
-    border: 2px solid #F10007;
+    border: 2px solid white;
     border-right: none;
     border-radius: 20px 0 0 20px;
     padding: 20px;
 }
 .burger-author {
-    color: #F10007;
+    color: white;
     font-weight: 600;
 }
 .burger-author:hover{
-    color: #F10007;
+    color: white;
 }
 .burger-page-img {
     margin-top: 20px;
@@ -43,23 +43,27 @@
     align-items: center;
 }
 .edit-burg-btn {
-    background-color: #FFAA3A;
-    color: #F10007;
-    border: none;
-    margin-right: 10px;
-    border-radius: 10px;
-    padding: 7px 12px;
+    background-color: #FF531C;
+    color: white;
+    border: 2px solid white;
+    margin-right: 20px;
+    border-radius: 8px;
+    padding: 7px 25px;
+    font-weight: 600;
 }
 .delete-burg-btn {
-    background-color: #F10007;
-    color: #F09F76;
-    border: none;
-    border-radius: 10px;
-    padding: 7px 12px;
-
+    background-color: white;
+    color: #FF531C;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 7px 25px;
 }
 .edit-burg-btn:hover {
-    color: #F10007;
+    text-decoration: none;
+    animation: .3s ease-in 0s fadeInWhite forwards;
+}
+.delete-burg-btn:hover {
+    animation: .3s ease-in 0s fadeIn forwards;
     text-decoration: none;
 }
 
@@ -76,7 +80,7 @@
     min-width: 100%;
     min-height: 100%;
     border-radius: 0 20px 20px 0;
-    border: 2px solid #F10007;
+    border: 2px solid white;
     border-left: none;
 }
 
@@ -85,6 +89,18 @@
 
 /* edit burger page */
 .edit-burg-col {
-    height: 640px;
+    height: 770px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
+@keyframes fadeInWhite {
+    0% {
+        background-color: #FF531C;
+        color: white;
+    } 
+    100% {
+        background-color: white;
+        color: #FF531C;
+    }
+}
