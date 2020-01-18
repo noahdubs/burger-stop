@@ -1,30 +1,36 @@
 <% include ../partials/header %>
-<div class="container">
-    <header class="jumbotron">
-        <div class="container">
-            <h1>Welcome To Burger Stop!</h1>
-            <p>View our hand-picked burgers from all over the world</p>
-            <p>
-                <a class="btn add-new-btn" href="/burgers/new">Add a new burger <i class="fas fa-plus"></i></a>
-            </p>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-7 jumb-h-col">
+                    <h1>All Burger Reviews</h1>
+    
+                </div>
+                <div class="col-md-5 add-rev-col">
+                    <p>
+                        <a class="btn add-new-btn" href="/burgers/new">Add a new review <i class="fas fa-plus"></i></a>
+                    </p>
+                </div>
+            </div>
         </div>
-    </header>
+    
+    
+    
 
     <div class="row text-center" style="display:flex; flex-wrap:wrap;">
         <% burgers.forEach((burger)=>{ %>
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card">
+                <div class="card burger-card">
                     <a href="/burgers/<%= burger._id %>">
                         <img class="burger-img" src="<%= burger.picture.url %>"> 
                     </a>
                     <div class="card-body">
-                        <a class="burger-link" href="/burgers/<%= burger._id %>">
-                            <h4><%= burger.name %></h4>
-                        </a>
-                        <p><%= burger.restaurant %></p>
-                        <a class="burger-link" href="/users/<%= burger.author.id %>">
-                            <h5>Made by <%= burger.author.username %></h5>
-                        </a>
+                        <div class="centered">
+                            <a class="burger-link" href="/burgers/<%= burger._id %>">
+                                <h3><%= burger.name %></h3>
+                            </a>
+                            <p><%= burger.restaurant %></p>
+                        </div>
                         <p value="<%= burger.stars %>" class="p-stars">
                             <i class="fas fa-star bgs-star"></i>
                             <i class="fas fa-star bgs-star"></i>
@@ -32,12 +38,11 @@
                             <i class="fas fa-star bgs-star"></i>
                             <i class="fas fa-star bgs-star"></i>
                         </p>
-                        <% if(burger.date.edited){ %>
-                            <p><i class="far fa-clock"></i> <%= burger.date.edited %></p>
-                        <% } else { %>
-                            <p><i class="far fa-clock"></i> <%= burger.date.posted %></p>
-                        <% } %>
-                        
+                        <p>Review by 
+                            <a href="/users/<%= burger.author.id %>" class="burger-link">
+                                @<%= burger.author.username %>
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

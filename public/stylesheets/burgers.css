@@ -21,12 +21,22 @@
     padding: 25px 40px;
     border: 2px solid white;
 }
+.jumb-h-col {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.add-rev-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .add-new-btn {
     margin-top: 20px;
     background-color: #FF531C;
     border: 2px solid white;
     color: white;
-    padding: .5em 3em;
+    padding: .5em 2.2em;
     font-weight: 700;
     border-radius: 5px;
 }
@@ -37,26 +47,36 @@
 .burger-col {
     height: 200px;
 }
-.card {
+.burger-card {
     background-color: #FF531C;
     border-radius: 20px;
     border: 2px solid white;
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 .card-body {
-    padding: 0;
+    padding: 15px;
+    padding-bottom: 0;
+    text-align: left !important;
+    margin-left: 5px;
+}
+.centered {
+    text-align: center;
+    margin-left: -5px;
 }
 .burger-img {
     max-width: 100%;
     max-height: 100%;
-    margin-bottom: 20px;
-    border-radius: 20px 20px 0 0px;
+    border-radius: 15px 15px 0 0px;
     height: 200px;
+    border-bottom: 2px solid white;
 }
 .caption {
     margin-bottom: 20px;
 }
 .burger-link {
     color: white;
+    max-width: 100%;
 }
 .burger-link:hover {
     color: white;
