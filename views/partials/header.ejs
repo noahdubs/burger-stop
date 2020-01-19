@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/stylesheets/new-burger.css">
     <link rel="stylesheet" href="/stylesheets/comments.css">
     <link rel="stylesheet" href="/stylesheets/user.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
 
     <title>Burger Stop</title>
 </head>
@@ -28,6 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav navbar-right">
+                    <li><a class="list-item nav-item" href="/burgers">Burgers <i class="fas fa-hamburger"></i></a></li>
                     <% if(!currentUser){ %>
                         <li><a class="list-item nav-item" href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
                         <li><a class="list-item nav-item" href="/register">Register <i class="fas fa-user-plus"></i></a></li>

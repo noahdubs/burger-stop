@@ -16,7 +16,8 @@ var commentRoutes    = require("./routes/comments"),
     userRoutes       = require("./routes/user");
 
 var app = express();
-mongoose.connect("mongodb://localhost:27017/burgerStop", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(`mongodb+srv://noahdubs:${process.env.CLUSTER_PASSWORD}@cluster0-wbttr.mongodb.net/burger?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+ "/public"));

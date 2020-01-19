@@ -1,0 +1,94 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("https://wallpaperaccess.com/full/1312727.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+}
+.landing {
+    color: white;
+    margin-left: 15%;
+    margin-top: 15%;
+    width: 480px;
+}
+.landing h1 {
+    font-size: 70px;
+}
+.landing p {
+    margin-top: 10px;
+    font-size: 35px;
+}
+.btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.landing-btn {
+    margin-top: 10px;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0px 0px 8px 8px  #46433D;
+    font-size: 20px;
+}
+.landing-btn:hover {
+    color: white;
+    text-decoration: none;
+    animation: .5s ease 0s coolBtn forwards;
+}
+
+@keyframes coolBtn {
+    0% {
+        padding: 15px 40px;
+        background: transparent;
+        color: white;
+    border: 2px solid white;
+    }
+    100% {
+        padding: 15px 50px;
+        color: #24211A;
+        background-color: white;
+        border: 3px solid #24211A;
+    }
+}
+
+@media (max-width: 800px){
+    .landing {
+        margin-left: 1%;
+    }
+}
+@media (min-width: 800px){
+    .landing {
+        margin-left: 4%;
+    }
+}
+
+@media (min-width: 915px){
+    .landing {
+        margin-left: 6%;
+    }
+}
+@media (min-width: 980px){
+    .landing {
+        margin-left: 8%;
+    }
+}
+@media (min-width: 1055px){
+    .landing {
+        margin-left: 10%;
+    }
+}
+@media (min-width: 1500px){
+    .landing {
+        margin-left: 15%;
+    }
+}
