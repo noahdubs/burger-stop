@@ -10,6 +10,7 @@
 /* burger page styles */
 .burger-container {
     height: 100%;
+    margin-top: 25px;
 }
 .burger-row {
     height: 100%;
@@ -20,7 +21,7 @@
     padding: 0;
     border: 2px solid white;
     border-right: none;
-    border-radius: 20px 0 0 20px;
+    border-radius: 10px 0 0 10px;
     padding: 20px;
 }
 .burger-author {
@@ -47,7 +48,7 @@
     color: white;
     border: 2px solid white;
     margin-right: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 7px 25px;
     font-weight: 600;
 }
@@ -55,7 +56,7 @@
     background-color: #FF531C;
     color: white;
     border: 2px solid white;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 7px 25px;
 }
 .edit-burg-btn:hover {
@@ -95,10 +96,11 @@
 .address {
     height: 100px;
     max-width: 100%;
+    min-height: 23%;
     max-height: 23%;
     background-color: #FF531C;
     border: 2px solid white;
-    border-radius: 0 20px 0 0;
+    border-radius: 0 10px 0 0;
     border-left: none;
     border-bottom: none;
 }
@@ -111,7 +113,7 @@
 #map {
     min-width: 100%;
     min-height: 77%;
-    border-radius: 0 0px 20px 0;
+    border-radius: 0 0px 10px 0;
     border: 2px solid white;
     border-left: none;
 }

@@ -17,7 +17,7 @@
 .jumbotron {
     background-color: #FF531C;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 25px 40px;
     border: 2px solid white;
 }
@@ -49,10 +49,14 @@
 }
 .burger-card {
     background-color: #FF531C;
-    border-radius: 20px;
-    border: 2px solid white;
+    border-radius: 10px;
     justify-content: flex-start;
+    border: 2px solid white;
     margin-top: 20px;
+}
+.burger-card:hover {
+    border: none;
+    box-shadow: 0px 0px 5px 3px  #FFFFFF;
 }
 .card-body {
     padding: 15px;
@@ -64,10 +68,14 @@
     text-align: center;
     margin-left: -5px;
 }
+.burger-pic-div a {
+    width: 100%;
+}
 .burger-img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 15px 15px 0 0px;
+    width: 120%;
+    border-radius: 7px 7px 0 0;
     height: 200px;
     border-bottom: 2px solid white;
 }

@@ -60,7 +60,7 @@
             </div>
             <div class="row com-row">
                 <% burger.comments.forEach((comment)=>{ %> 
-                    <div class="col-6 com-content">
+                    <div class="col-9 com-content">
                         <a class="burger-author com-author" href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
                         <p><%= comment.text %></p>
                         <% if(comment.date.edited){ %>
@@ -69,14 +69,21 @@
                             <p><i class="far fa-clock"></i> <%= comment.date.posted %></p>
                         <% } %>
                     </div>
-                    <div class="col-6 com-options-col">
+                    <div class="col-3 com-options-col">
                         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                            <a href="/burgers/<%= burger._id %>/comments/<%= comment._id %>/edit" 
-                            class="edit-comm-btn">Edit <i class="far fa-edit"></i></a>
-                            <form action="/burgers/<%= burger._id %>/comments/<%= comment._id %>?_method=DELETE" 
-                                method="POST" class="deleteForm">
-                                <button class="delete-comm-btn">Delete <i class="fas fa-trash"></i></button>
-                            </form>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <a class="dropdown-item edit-comm-btn" href="/burgers/<%= burger._id %>/comments/<%= comment._id %>/edit" 
+                                    >Edit <i class="far fa-edit"></i></a>
+                                    <form action="/burgers/<%= burger._id %>/comments/<%= comment._id %>?_method=DELETE" 
+                                        method="POST" class="deleteForm">
+                                        <button class="delete-comm-btn">Delete <i class="fas fa-trash"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         <% } %>
                     </div>
                 <% }) %> 

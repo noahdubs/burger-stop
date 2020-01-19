@@ -9,7 +9,8 @@ router.get("/:userId", (req, res) => {
         if(err){
             console.log(err)
         } else {
-            res.render("users/show", {user: foundUser});
+            const burgers = foundUser.burgers.length
+            res.render("users/show", {user: foundUser, numBurgers: burgers});
         }
     });
 });

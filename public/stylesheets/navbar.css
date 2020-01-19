@@ -12,7 +12,7 @@ lettuce: #91a61d
     color: white;
 }
 .navbar-brand {
-    color: #FF3E00;
+    color: #FF3E00 !important;
     z-index: 1000;
     font-size: 30px;
     font-weight: 600;

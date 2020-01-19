@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-    <div class="container">
+    <div class="container user-container">
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-7 jumb-h-col">
@@ -21,9 +21,11 @@
         <% burgers.forEach((burger)=>{ %>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="card burger-card">
-                    <a href="/burgers/<%= burger._id %>">
-                        <img class="burger-img" src="<%= burger.picture.url %>"> 
-                    </a>
+                    <div class="burger-pic-div">
+                        <a href="/burgers/<%= burger._id %>">
+                            <img class="burger-img" src="<%= burger.picture.url %>"> 
+                        </a>
+                    </div>
                     <div class="card-body">
                         <div class="centered">
                             <a class="burger-link" href="/burgers/<%= burger._id %>">

@@ -1,33 +1,66 @@
 <% include ../partials/header %>
-    <div class="container">
-        <div class="row user-row">
-            <div class="col-md-4 img-col">
-                <img src="<%= user.picture.url %>" class="user-img">
-            </div>
-            <div class="col-md-8">
-                <h1><%= user.name %></h1>
-                <h3>@<%= user.username %></h3>
-                <p>Member since <%= user.date %></p>
-            </div>
-        </div>
-        <div class="row user-burgers-row">
-            <% user.burgers.forEach(burger=> { %>
-                <div class="col-md-3 col-sm-6 burger-col">
-                    <div class="thumbnail">
-                        <a href="/burgers/<%= burger._id %>">
-                            <img class="burger-img" src="<%= burger.picture.url %>"> 
-                        </a>
-                        <div class="caption">
-                            <a class="burger-link" href="/burgers/<%= burger._id %>">
-                                <h4><%= burger.name %></h4>
-                            </a>
-                            <a class="burger-link" href="/users/<%= burger.author.id %>">
-                                <h5>Made by <%= burger.author.username %></h5>
-                            </a>
+    <div class="container user-container">
+        <div class="row">
+            <div class=" col-lg-3 user-info-col">
+                <div class="row user-info-row">
+                    <div class="col-6 col-lg-12 centered-pic">
+                        <img src="<%= user.picture.url %>" class="user-pic" >
+                    </div>
+                    <div class="col-6 col-lg-12 user-info">
+                        <h4><%= user.name %></h4>
+                        <p>@<%= user.username %></p>
+                        <p><%= user.bio %></p>
+                        <p><i class="far fa-clock"></i> Joined <%= user.date %></p>
+                        <div class="user-options">
+                            <% if(currentUser && user._id.equals(currentUser._id)){ %>
+                                <a href="/users/<%= user._id %>/edit" class="lg-rg-btn edit-user-btn">Edit profile <i class="far fa-edit"></i></a>
+                                <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+                                    <button class="lg-rg-btn del-user">Delete profile <i class="fas fa-trash"></i></button>
+                                </form>
+                            <% } %>
                         </div>
                     </div>
                 </div>
-            <% }) %>
-        </div>  
+            </div>
+            <div class=" col-lg-9 user-burgers-col">
+                <div class="user-burgers-heading">
+                    <h3><i class="fas fa-hamburger"></i> Reviews by <%= user.name %></h3>
+                </div>
+                <div class="row">
+                    <% user.burgers.forEach(burger => { %>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card burger-card">
+                                <div class="burger-pic-div">
+                                    <a href="/burgers/<%= burger._id %>">
+                                        <img class="burger-img" src="<%= burger.picture.url %>"> 
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="centered">
+                                        <a class="burger-link" href="/burgers/<%= burger._id %>">
+                                            <h3><%= burger.name %></h3>
+                                        </a>
+                                        <p><%= burger.restaurant %></p>
+                                    </div>
+                                    <p value="<%= burger.stars %>" class="p-stars">
+                                        <i class="fas fa-star bgs-star"></i>
+                                        <i class="fas fa-star bgs-star"></i>
+                                        <i class="fas fa-star bgs-star"></i>
+                                        <i class="fas fa-star bgs-star"></i>
+                                        <i class="fas fa-star bgs-star"></i>
+                                    </p>
+                                    <% if(burger.date.edited){ %>
+                                        <p><i class="far fa-clock"></i> <%= burger.date.edited %></p>
+                                    <% } else { %>
+                                        <p><i class="far fa-clock"></i> <%= burger.date.posted %></p>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/scripts/indexStars.js"></script>
 <% include ../partials/footer %>

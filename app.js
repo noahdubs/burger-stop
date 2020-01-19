@@ -11,7 +11,7 @@ const express        = require('express'),
 
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
-    burgerRoutes = require("./routes/burgers"),
+    burgerRoutes     = require("./routes/burgers"),
     indexRoutes      = require("./routes/index"),
     userRoutes       = require("./routes/user");
 

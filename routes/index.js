@@ -35,7 +35,6 @@ router.get("/register", (req, res)=>{
 
 // add user to db
 router.post("/register", parser.single("image"), (req, res)=>{
-    console.log("got here")
     const image = {};
     if(typeof req.file === "undefined"){
         image.url = process.env.DEFAULT_PROFILE_PIC
@@ -48,6 +47,7 @@ router.post("/register", parser.single("image"), (req, res)=>{
     var newUser = new User({
         username: req.body.username,
         name: req.body.name,
+        bio: req.body.bio,
         picture: image,
         date: currentTime
     });

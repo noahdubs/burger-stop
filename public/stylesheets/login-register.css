@@ -13,11 +13,11 @@
     background-color: #FF531C;
     height: 380px;
     border: 2px solid white;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 40px;
 }
 .reg-col {
-    height: 550px;
+    height: 650px;
 }
 .form-col h1 {
     padding: 1em 0 .5em .25em;
