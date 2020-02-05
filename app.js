@@ -49,6 +49,6 @@ app.use("/burgers", burgerRoutes);
 app.use("/users", userRoutes);
 
 
-app.listen(8000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("burger stop has started on port 8000");
 });
