@@ -116,6 +116,15 @@
         justify-content: center;
     }
 }
+@media (min-width: 421px){
+    .bg-indx-jumbo {
+        padding: 25px 40px;
+    }
+    .jumb-h-col {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
 
 
 
