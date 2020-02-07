@@ -108,6 +108,13 @@
     .bg-indx-h {
         font-size: 30px;
     }
+    .bg-indx-jumbo {
+        padding: 15px 10px;
+    }
+    .jumb-h-col {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 
