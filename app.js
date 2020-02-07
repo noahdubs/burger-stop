@@ -7,7 +7,9 @@ const express        = require('express'),
     LocalStrategy  = require("passport-local"),
     methodOverride = require("method-override"),
     User           = require("./models/user"),
-    flash          = require("connect-flash");
+    flash          = require("connect-flash"),
+    path           = require("path"),
+    favicon        = require("serve-favicon");
 
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
