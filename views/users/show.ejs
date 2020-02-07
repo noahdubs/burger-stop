@@ -7,7 +7,7 @@
                         <img src="<%= user.picture.url %>" class="user-pic" >
                     </div>
                     <div class="col-6 col-lg-12 user-info">
-                        <h4><%= user.name %></h4>
+                        <h4 class="user-name"><%= user.name %></h4>
                         <p>@<%= user.username %></p>
                         <p><%= user.bio %></p>
                         <p><i class="far fa-clock"></i> Joined <%= user.date %></p>
@@ -24,7 +24,7 @@
             </div>
             <div class=" col-lg-9 user-burgers-col">
                 <div class="user-burgers-heading">
-                    <h3><i class="fas fa-hamburger"></i> Reviews by <%= user.name %></h3>
+                    <h3 class="user-bg-h"><i class="fas fa-hamburger"></i> Reviews by <%= user.name %></h3>
                 </div>
                 <div class="row">
                     <% user.burgers.forEach(burger => { %>

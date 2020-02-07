@@ -50,21 +50,7 @@
     padding-top: 15px;
 }
 
-@media (max-width: 991px){
-    .centered-pic {
-        border-radius: 10px 0 0 10px;
-        border-right: none;
-        padding: 5px;
-    }
-    .user-info {
-        margin-top: 0;
-        border-left: none;
-        border-radius: 0 10px 10px 0;
-    }
-    .user-info-row {
-        margin-bottom: 20px;
-    }
-}
+
 
 .edit-user-col {
     height: 580px;
@@ -82,4 +68,54 @@
 .del-user {
     width: 95%;
     margin-top: 25px;
+}
+
+@media (max-width: 350px) {
+    .edit-user-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .del-user {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    .user-bg-h {
+        font-size: 18px;
+    }
+    .user-burgers-heading {
+        padding: 15px 0;
+    }
+}
+
+@media (min-width: 351px) { 
+    .edit-user-btn {
+        padding: 8px 20px;
+        font-size: 15px;
+    }
+    .del-user {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .user-bg-h {
+        font-size: 20px;
+    }
+    .user-burgers-heading {
+        padding: 15px 5px;
+    }
+}
+
+@media (max-width: 991px){
+    .centered-pic {
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+        padding: 5px;
+    }
+    .user-info {
+        margin-top: 0;
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+    }
+    .user-info-row {
+        margin-bottom: 20px;
+    }
 }

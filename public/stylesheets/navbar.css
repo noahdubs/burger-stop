@@ -32,4 +32,10 @@ lettuce: #91a61d
     text-decoration: none;
 }
 
+@media screen and (max-width: 767px){
+    .navbar-collapse {
+        background-color: #f2a16c;
+        padding: 10px 0 10px 0;
+    }
+}
 

@@ -91,4 +91,25 @@
     text-decoration: none;
 }
 
+@media (max-width: 350px) {
+    .bg-indx-jumbo {
+        padding: 10px 5px 5px 5px;
+    }
+    .jumb-h-col {
+        display: flex;
+        justify-content: center;
+    }
+    .bg-indx-h {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 351px) { 
+    .bg-indx-h {
+        font-size: 30px;
+    }
+}
+
+
+
 

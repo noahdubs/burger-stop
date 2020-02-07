@@ -61,7 +61,42 @@ body {
     }
 }
 
-@media (max-width: 800px){
+@media (max-width: 350px) {
+    .landing h1 {
+        font-size: 50px;
+    }
+    .landing p {
+        font-size: 25px;
+    }
+    .landing {
+        width: 100%;
+        margin: 50px 0 0 10px;
+        padding-top: 50px;
+    }
+    .jumb-h-col h1 {
+        font-size: 30px;
+    }
+}
+@media (min-width: 351px) {
+    .landing h1 {
+        font-size: 60px;
+    }
+    .landing p {
+        margin-top: 20px;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .landing {
+        width: 100%;
+        margin: 70px 0 0 15px;
+        padding-top: 50px;
+    }
+    .jumb-h-col h1 {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 421px){
     .landing {
         margin-left: 1%;
     }
